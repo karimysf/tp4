@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">Gestion Etudiant</string>
+    <string name="add_student">AJOUTER ETUDIANT</string>
+
+
+    <string name="logo_description">Your logo description here</string>
+
+    <string-array name="genie">
+        <item>Génie informatique</item>
+        <item>Génie Modélisation et Informatique Scientifique</item>
+        <item>Génie industriel</item>
+        <item>Génie Mécanique</item>
+        <item>Génie Civil</item>
+        <item>Génie Electrique</item>
+    </string-array>
+
+    <!-- Form Title -->
+    <string name="form_title">Form Title</string>
+
+    <!-- Hints for EditText -->
+    <string name="name_hint">Enter your name</string>
+    <string name="dob_hint">Enter your date of birth</string>
+    <string name="phone_hint">Enter your phone number</string>
+    <string name="email_hint">Enter your email address</string>
+
+    <!-- Spinner and Gender -->
+    <string name="genie_list">Select a genie</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+
+    <!-- Accept Rules -->
+    <string name="accept_rules">I accept the terms and conditions</string>
+
+    <!-- Buttons -->
+    <string name="cancel">Cancel</string>
+    <string name="submit">Submit</string>
+
+</resources>
