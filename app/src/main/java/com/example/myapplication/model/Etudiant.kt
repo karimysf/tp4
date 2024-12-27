@@ -5,7 +5,7 @@ import java.io.Serializable
 
 data class Etudiant(
     @DocumentId
-    var id: Int?=null,
+    var id: Int? = null, // Firestore will use this as the document ID
     val nom: String,
     val dateNaissance: String,
     val telephone: String,
@@ -13,4 +13,4 @@ data class Etudiant(
     val niveau: String,
     val sexe: String,
     val departement: String
-) :Serializable
+) : Serializable

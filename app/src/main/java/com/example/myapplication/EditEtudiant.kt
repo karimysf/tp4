@@ -6,7 +6,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.app.db.DatabaseHelper
+//import com.example.app.db.DatabaseHelper
 
 
 class EditEtudiant : AppCompatActivity() {
@@ -30,15 +30,15 @@ class EditEtudiant : AppCompatActivity() {
 
         etudiantId = intent.getIntExtra("etudiantId", -1)
 
-        if (etudiantId != -1) {
-            val dbHelper = DatabaseHelper(this)
-            val etudiant = dbHelper.getEtudiant(etudiantId)
-            etudiant?.let {
-                editNom.setText(it.nom)
-                editTelephone.setText(it.telephone)
-                editEmail.setText(it.email)
-            }
-        }
+//        if (etudiantId != -1) {
+//            val dbHelper = DatabaseHelper(this)
+//            val etudiant = dbHelper.getEtudiant(etudiantId)
+//            etudiant?.let {
+//                editNom.setText(it.nom)
+//                editTelephone.setText(it.telephone)
+//                editEmail.setText(it.email)
+//            }
+//        }
 
         btnSauvegarder.setOnClickListener {
             println(etudiantId)
@@ -51,7 +51,11 @@ class EditEtudiant : AppCompatActivity() {
                 return@setOnClickListener
             }
             if (telephone.isEmpty()) {
-                Toast.makeText(this, "Le numéro de téléphone ne peut pas être vide", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    "Le numéro de téléphone ne peut pas être vide",
+                    Toast.LENGTH_SHORT
+                ).show()
                 return@setOnClickListener
             }
             if (email.isEmpty()) {
@@ -64,28 +68,29 @@ class EditEtudiant : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            val dbHelper = DatabaseHelper(this)
-            val result = dbHelper.modifierEtudiant(etudiantId, nom, telephone, email)
+//            val dbHelper = DatabaseHelper(this)
+//            val result = dbHelper.modifierEtudiant(etudiantId, nom, telephone, email)
 
-            if (result > 0) {
-                val resultIntent = Intent().apply {
-                    putExtra("updatedNom", nom)
-                    putExtra("updatedTelephone", telephone)
-                    putExtra("updatedEmail", email)
-                }
+//            if (result > 0) {
+//                val resultIntent = Intent().apply {
+//                    putExtra("updatedNom", nom)
+//                    putExtra("updatedTelephone", telephone)
+//                    putExtra("updatedEmail", email)
+//                }
 
-                // Set the result to indicate success and pass the updated data
-                setResult(RESULT_OK, resultIntent)
-                Toast.makeText(this, "Étudiant modifié avec succès", Toast.LENGTH_SHORT).show()
-                finish()
-            } else {
-                Toast.makeText(this, "Erreur lors de la modification de l'étudiant", Toast.LENGTH_SHORT).show()
-            }
+            // Set the result to indicate success and pass the updated data
+////                setResult(RESULT_OK, resultIntent)
+//                Toast.makeText(this, "Étudiant modifié avec succès", Toast.LENGTH_SHORT).show()
+//                finish()
+//            } else {
+//                Toast.makeText(this, "Erreur lors de la modification de l'étudiant", Toast.LENGTH_SHORT).show()
+//            }
+//        }
+//
+//        btnAnnuler.setOnClickListener {
+//            finish()
+//        }
+
         }
-
-        btnAnnuler.setOnClickListener {
-            finish()
-        }
-
     }
 }

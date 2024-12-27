@@ -21,38 +21,40 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Initialize RecyclerView
         val recyclerView: RecyclerView = findViewById(R.id.recyclerViewEtudiants)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         adapter = EtudiantAdapter(etudiantsList, this)
         recyclerView.adapter = adapter
 
+        // Floating Action Button for adding student
         fabAdd = findViewById(R.id.floatingAjouterButton)
 
+        // Activity result launcher
         val addEtudiantLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
                 if (result.resultCode == RESULT_OK) {
-                    loadEtudiants()
+                    loadEtudiants()  // Refresh list when adding a new student
                 }
             }
 
+        // Set listener to launch AjouterEtudiantActivity
         fabAdd.setOnClickListener {
             val intent = Intent(this, AjouterEtudiantActivity::class.java)
             addEtudiantLauncher.launch(intent)
         }
-
-        loadEtudiants()
     }
-// pour que la liste se recharge apres la modification
+
     override fun onResume() {
         super.onResume()
-        loadEtudiants()
+        loadEtudiants()  // Refresh the list when returning to the activity
     }
 
     private fun loadEtudiants() {
         val dbHelper = DatabaseHelper(this)
         etudiantsList.clear()
-        etudiantsList.addAll(dbHelper.getAllEtudiants())
+        etudiantsList.addAll(dbHelper.getAllEtudiants())  // Fetch the updated list from the database
         adapter.notifyDataSetChanged()
     }
 }

@@ -46,9 +46,7 @@ class EtudiantAdapter(private val etudiants: MutableList<Etudiant>, private val 
         holder.deleteButton.setOnClickListener {
             val dbHelper = DatabaseHelper(context)
             val db = dbHelper.writableDatabase
-
-                val result = etudiant.id?.let { it1 -> dbHelper.supprimerEtudiant(db, it1) }
-
+            val result = etudiant.id?.let { it1 -> dbHelper.supprimerEtudiant(db, it1) }
 
             if (result != null) {
                 if (result > 0) {
